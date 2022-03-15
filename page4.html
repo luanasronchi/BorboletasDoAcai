@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pedidos</title>
+</head>
+<body>
+    <header class="titulo">
+        <button class="button_voltar"><img src="imgs/voltar.svg"></button>
+        <h1 class="shadow">Pedidos</h1>
+    </header>
+    <main>
+        <section class="caixa_pedidos">
+            <div class="caixa_icon">
+                <img src="imgs/acai2.png" class="icon_acai">
+            </div>
+                
+            <div class="texto_pedidos">
+                <h2 class="texto_pedidos"><b>Açaí Médio</b></h2>
+                <h3 class="texto_pedidos">500ml</h3>
+                <h3 class="texto_pedidos">2 complementos</h3>
+            </div>
+            <div class="qtd">
+                <button class="none" onclick="sub(1);">-</button>
+                <input class="qtd_caixa none" type="number" id="qtd1" name="quantity" min="1" value="1" max="20">
+                <button class="none" onclick="soma(1);">+</button>
+            </div> 
+            <input class="preco_pedidos none" id="preco1" type="number" value="9.40" readonly>
+        </section>
+        <section class="caixa_pedidos">
+            <div class="caixa_icon">
+                <img src="imgs/acai2.png" class="icon_acai">
+            </div>
+                
+            <div class="texto_pedidos">
+                <h2 class="texto_pedidos"><b>Açaí Grande</b></h2>
+                <h3 class="texto_pedidos">800ml</h3>
+                <h3 class="texto_pedidos">3 complementos</h3>
+            </div>
+            <div class="caixas_pedidos">
+                <div class="qtd">
+                    <button class="none" onclick="sub(2);">-</button>
+                    <input class="qtd_caixa none" type="number" id="qtd2" name="quantity" min="0" value="1" max="20">
+                    <button class="none" onclick="soma(2);">+</button>
+                </div> 
+                <input class="none" id="preco2" type="number" value="9.40" readonly>
+            </div>
+        </section>
+    </main>
+    <footer class="menu_bar">
+        <button class="menu_button"><a href="page2.html"><img src="imgs/Home.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page3.html"><img src="imgs/Search.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Favorite.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page4.html"><img src="imgs/Cart.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page5.html"><img src="imgs/Profile.svg" class="menu_img"></a></button>
+    </footer>
+</body>
+<script>
+    function sub(x){
+        if (x == 1) {
+                var valor = parseInt(qtd1.value)
+            if (valor > 1){
+                valor = valor - 1
+                qtd1.value = valor
+                preco = preco1.value*valor
+                preco1.value = preco.toFixed(2);
+            }
+        }
+        if (x == 2) {
+                var valor = parseInt(qtd2.value)
+            if (valor > 1){
+                valor = valor - 1
+                qtd2.value = valor
+                preco = preco2.value*valor
+                preco2.value = preco.toFixed(2);
+            }
+        }
+    }
+    
+    function soma(x){
+        if (x == 1) {
+                var valor = parseInt(qtd1.value)
+            if (valor < 20){
+                valor = valor + 1
+                qtd1.value = valor
+                preco = preco1.value*valor
+                preco1.value = preco.toFixed(2);
+            }
+        }
+        if (x == 2) {
+                var valor = parseInt(qtd2.value)
+            if (valor <20){
+                valor = valor + 1
+                qtd2.value = valor
+                preco = preco2.value*valor
+                preco2.value = preco.toFixed(2);
+            }
+        }
+    }
+
+</script>
+</html>

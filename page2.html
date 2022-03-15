@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Menu</title>
+</head>
+<body>
+    <header>
+        <h1>Menu</h1>
+        <img src="imgs/Logo.svg" width="90px">
+    </header>
+    <main>
+        <section class="center">
+            <button class="borboblack">
+                <img src="imgs/ticket.svg">
+                <a class="borboblacktext">
+                    <h2 class="noMargin">BorboBlack</h2>
+                    <h3 class="noMargin fontLight">Cupom 5%</h3>
+                </a>
+                <img src="imgs/seta.svg">
+            </button>
+        </section>
+        <section>
+            <h3 class="combos_text center">Combos do Dia</h3>
+            <section class="combos">
+                <div class="combo">
+                    <img class="img_combo" src="imgs/combo1.svg">
+                    <button class="button_combo"><img src="imgs/setinha.svg"></button>
+                </div>
+                <div class="combo">
+                    <img class="img_combo" src="imgs/combo2.svg">
+                    <button class="button_combo"><img src="imgs/setinha.svg"></button>
+                </div>
+                <div class="combo">
+                    <img class="img_combo" src="imgs/combo3.svg">
+                    <button class="button_combo"><img src="imgs/setinha.svg"></button>
+                </div>
+            </section>
+        </section>
+        <button class="button_montar">Monte seu Pedido</button> 
+    </main>
+    <footer class="menu_bar">
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Home.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Search.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Favorite.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Cart.svg" class="menu_img"></a></button>
+        <button class="menu_button"><a href="page1.html"><img src="imgs/Profile.svg" class="menu_img"></a></button>
+    </footer>
+
+</body>
+<script>
+    var db = openDatabase('APP2.0','v1.0','Minha base',2*1024*1024)
+</script>
+</html>
