@@ -22,16 +22,18 @@
                 <h3 class="texto_pedidos">500ml</h3>
                 <h3 class="texto_pedidos">2 complementos</h3>
             </div>
-            <div class="qtd">
-                <button class="none" onclick="sub(1);">-</button>
-                <input class="qtd_caixa none" type="number" id="qtd1" name="quantity" min="1" value="1" max="20">
-                <button class="none" onclick="soma(1);">+</button>
-            </div> 
-            <input class="preco_pedidos none" id="preco1" type="number" value="9.40" readonly>
+            <div class="caixas_pedidos">
+                <div class="qtd">
+                    <button class="none" onclick="sub(1);">-</button>
+                    <input class="qtd_caixa none" type="number" id="qtd1" name="quantity" min="1" value="1" max="20" readonly >
+                    <button class="none" onclick="soma(1);">+</button>
+                </div> 
+                <input class="preco_pedidos none" id="preco1" type="number" value="9.00" readonly>
+            </div>    
         </section>
         <section class="caixa_pedidos">
             <div class="caixa_icon">
-                <img src="imgs/acai2.png" class="icon_acai">
+                <img src="imgs/acai3.png" class="icon_acai">
             </div>
                 
             <div class="texto_pedidos">
@@ -42,12 +44,19 @@
             <div class="caixas_pedidos">
                 <div class="qtd">
                     <button class="none" onclick="sub(2);">-</button>
-                    <input class="qtd_caixa none" type="number" id="qtd2" name="quantity" min="0" value="1" max="20">
+                    <input class="qtd_caixa none" type="number" id="qtd2" name="quantity" min="1" value="1" max="20" readonly >
                     <button class="none" onclick="soma(2);">+</button>
                 </div> 
-                <input class="none" id="preco2" type="number" value="9.40" readonly>
-            </div>
+                <input class="preco_pedidos none" id="preco2" type="number" value="15.00" readonly>
+            </div>    
         </section>
+        <button class="button_montar">Adicionar Pedido</button> 
+        <section class="pagamento_pedidos">
+            <h1>Valor total: R$ </h1>
+            <input type="number" id="precoTotal" value="24.00" readonly>
+            <button class="none" ><img src="imgs/seta.svg"></button>
+        </section>
+     
     </main>
     <footer class="menu_bar">
         <button class="menu_button"><a href="page2.html"><img src="imgs/Home.svg" class="menu_img"></a></button>
@@ -64,8 +73,9 @@
             if (valor > 1){
                 valor = valor - 1
                 qtd1.value = valor
-                preco = preco1.value*valor
+                preco = 9.00*valor
                 preco1.value = preco.toFixed(2);
+                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);               
             }
         }
         if (x == 2) {
@@ -73,8 +83,9 @@
             if (valor > 1){
                 valor = valor - 1
                 qtd2.value = valor
-                preco = preco2.value*valor
+                preco = 15.00*valor
                 preco2.value = preco.toFixed(2);
+                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
             }
         }
     }
@@ -85,17 +96,19 @@
             if (valor < 20){
                 valor = valor + 1
                 qtd1.value = valor
-                preco = preco1.value*valor
+                preco = 9.00*valor
                 preco1.value = preco.toFixed(2);
+                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
             }
         }
         if (x == 2) {
                 var valor = parseInt(qtd2.value)
-            if (valor <20){
+            if (valor < 20){
                 valor = valor + 1
                 qtd2.value = valor
-                preco = preco2.value*valor
+                preco = 15.00*valor
                 preco2.value = preco.toFixed(2);
+                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
             }
         }
     }
