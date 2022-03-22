@@ -247,7 +247,7 @@ b{
     margin-left: -15%;
 }
 
-/* PEDIDOS */
+/* PAGE 4 */
 
 .icon_acai{
     width: 70px;
@@ -349,6 +349,52 @@ b{
     height: 60%;
     border-radius: 10px;
 }
+
+.img_perfil{
+    margin-top: -25px;
+}
+
+.caixa_perfil{
+    background-color: rgba(255, 255, 255, 0.10);
+    width: 80%;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.caixas_perfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    
+    width: 80%;
+    height: 20%;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.logout_perfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    width: 80%;
+    height: 20%;
+    font-size: 12px;
+}
+
+.caixas_perfil h1  {
+    margin-left: 10px;
+} 
+
+.logout_perfil h1  {
+    margin-left: 10px;
+    color: #B5EA5C;
+} 
+
+.setinha_perfil{
+    margin-left: auto;
+}
+
 /* MENU BAR */
 
 .menu_bar{
