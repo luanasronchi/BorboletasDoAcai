@@ -15,7 +15,7 @@ body{
     flex-direction: column;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    animation: fadein 3s;
+    animation: fadein 1.8s;
 }
 
 @keyframes fadein{
@@ -45,6 +45,11 @@ h1{
 
 section{
     margin-bottom: 40px;
+}
+
+a{
+    color: unset;
+    text-decoration: none;
 }
 
 b{
