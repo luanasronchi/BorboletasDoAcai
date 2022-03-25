@@ -13,7 +13,12 @@
     </header>
     <!-- <img class="img_perfil" src="imgs/perfil.png" height="175px"> -->
 
-    <input type="file" name="meu_upload" id="meu_upload"><img id="imagem" class="img_perfil" src="imgs/perfil.png" height="175px" width="175px"></input>
+    <input type="file" name="meu_upload" id="meu_upload">
+    <div class="img_perfil">
+        <img id="imagem" src="imgs/perfil.png" height="175px" width="175px">
+        <img id="imagemSelect" src="frame2.png" class="img_perfil_edit" height="175px" width="175px">
+    </div>
+    </input>
     
 
     <main class="caixa_perfil">
@@ -60,7 +65,7 @@
         showThumbnail(this.files);
     });
 
-    $('#imagem').click(function(){
+    $('#imagemSelect').click(function(){
         $('#meu_upload').click();
     });
 

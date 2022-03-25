@@ -354,13 +354,33 @@ b{
     margin-top: -25px;
     width: 175px;
     height: 175px;
-    border-radius: 50%;
+    border-radius: 100%;
     background: 
     linear-gradient(180deg, #B5EA5C 0%, #761196 100%) padding-box,
     linear-gradient(180deg, #B5EA5C 0%, #761196 100%) border-box;
     border-radius: 50em;
     border: 3px solid transparent;
+    position: relative;
+    display: inline-block;
 }
+
+#imagem{
+    border-radius: 50%;
+}
+
+.img_perfil .img_perfil_edit {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.img_perfil:hover .img_perfil_edit {
+    display: inline;
+}
+
+
 
 /* .fundo_perfil{
     width: 200px;
