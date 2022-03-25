@@ -23,43 +23,42 @@
     <footer>
         <div class="linha"></div>
     </footer>
-
 </body>
 
 <script>
-        var db = openDatabase('APP2.0','v1.0','Minha base',2*1024*1024)
-        db.transaction(function(tx){
-                tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(10) PRIMARY KEY,password VARCHAR(5))')
-            });
-    
-        function registrar(){
-            db.transaction(function(tx){
-                tx.executeSql('INSERT INTO users(login,password) VALUES(?,?)',[login.value,password.value]);
-            });
-            location.reload();
-        }
-        function logar(){
-            db.transaction(function(tx){
-                var sql = 'SELECT * FROM users WHERE login=?';
+    /* --------------- DataBase --------------- */
+    var db = openDatabase('APP2.0','v1.0','Minha base',2*1024*1024)
 
-                tx.executeSql(sql,[login.value],function(tx,resultado){
-                    var nr_linhas = resultado.rows.length;
-                    if (nr_linhas>0){
-                        for(i=0; i<nr_linhas; i++){
-                            if (login.value == resultado.rows.item(i).login && password.value == resultado.rows.item(i).password){
-                                location.href = "page2.html"
-                            }else{
-                                alert("Senha incorreta.")
-                            }
+    db.transaction(function(tx){
+            tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(10) PRIMARY KEY,password VARCHAR(5))')
+        });
+
+    function registrar(){
+        db.transaction(function(tx){
+            tx.executeSql('INSERT INTO users(login,password) VALUES(?,?)',[login.value,password.value]);
+        });
+        location.reload();
+    }
+    function logar(){
+        db.transaction(function(tx){
+            var sql = 'SELECT * FROM users WHERE login=?';
+
+            tx.executeSql(sql,[login.value],function(tx,resultado){
+                var nr_linhas = resultado.rows.length;
+                if (nr_linhas>0){
+                    for(i=0; i<nr_linhas; i++){
+                        if (login.value == resultado.rows.item(i).login && password.value == resultado.rows.item(i).password){
+                            location.href = "page2.html"
+                        }else{
+                            alert("Senha incorreta.")
                         }
                     }
-                    else{
-                        alert("Usuário não existe.")
-                    }
-                });
+                }
+                else{
+                    alert("Usuário não existe.")
+                }
             });
-        }
-
-    </script>
-
+        });
+    }
+</script>
 </html>

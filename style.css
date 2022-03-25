@@ -352,6 +352,23 @@ b{
 
 .img_perfil{
     margin-top: -25px;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background: 
+    linear-gradient(180deg, #B5EA5C 0%, #761196 100%) padding-box,
+    linear-gradient(180deg, #B5EA5C 0%, #761196 100%) border-box;
+    border-radius: 50em;
+    border: 3px solid transparent;
+}
+
+/* .fundo_perfil{
+    width: 200px;
+    height: 200px;
+} */
+
+#meu_upload{
+    visibility: hidden;
 }
 
 .caixa_perfil{

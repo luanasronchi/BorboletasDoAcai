@@ -11,7 +11,11 @@
         <button class="button_voltar"><img src="imgs/voltar.svg"></button>
         <h1 class="shadow">Perfil</h1>
     </header>
-    <img class="img_perfil" src="imgs/perfil.png" height="175px">
+    <!-- <img class="img_perfil" src="imgs/perfil.png" height="175px"> -->
+
+    <input type="file" name="meu_upload" id="meu_upload"><img id="imagem" class="img_perfil" src="imgs/perfil.png" height="175px" width="175px"></input>
+    
+
     <main class="caixa_perfil">
         <a class="caixas_perfil">
             <img src="imgs/settings.svg">
@@ -45,4 +49,31 @@
         <button class="menu_button"><a href="page5.html"><img src="imgs/Profile.svg" class="menu_img"></a></button>
     </footer>
 </body>
+
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    /* --------------- DataBase --------------- */
+    var db = openDatabase('APP2.0','v1.0','Minha base',2*1024*1024)
+
+
+    $(document).on("change", "#meu_upload", function(e) {
+        showThumbnail(this.files);
+    });
+
+    $('#imagem').click(function(){
+        $('#meu_upload').click();
+    });
+
+    function showThumbnail(files) {
+        if (files && files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+               imagem.src =  e.target.result;
+            }
+
+            reader.readAsDataURL(files[0]);
+        }
+    }
+</script>
 </html>

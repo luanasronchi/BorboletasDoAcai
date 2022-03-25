@@ -65,7 +65,11 @@
         <button class="menu_button"><a href="page5.html"><img src="imgs/Profile.svg" class="menu_img"></a></button>
     </footer>
 </body>
+
 <script>
+    /* --------------- DataBase --------------- */
+    var db = openDatabase('APP2.0','v1.0','Minha base',2*1024*1024)
+
     function sub(x){
         if (x == 1) {
                 var valor = parseInt(qtd1.value)
@@ -111,6 +115,5 @@
             }
         }
     }
-
 </script>
 </html>
