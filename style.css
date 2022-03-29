@@ -33,12 +33,6 @@ header{
     margin-top: 30px;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 h1{
     font-weight: bold;
 }
@@ -95,6 +89,12 @@ b{
 
 /* PAGE 1 */
 
+.form_login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .input_login{
     border-radius: 8px;
     border: none;
@@ -102,6 +102,10 @@ b{
     height: 35px;
     padding-left: 10px;
     outline: none;
+}
+
+.input_login:required{
+    border: 1px solid red;
 }
 
 .texto_login{

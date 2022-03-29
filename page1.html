@@ -11,15 +11,16 @@
         <h1 class="shadow">Login</h1>
         <img src="imgs/Logo.svg" width="150px">
     </header>
-        <main>
+        <form class="form_login" action="#" onsubmit="registrar();">
             <h3 class="texto_login">Usuário</h3>
-            <input id="login" type="text" class="input_login shadow">
+            <input id="login" type="text" class="input_login shadow" required>
             <h3 class="texto_login">Senha</h3>
-            <input id="password" type="password" class="input_login shadow">
+            <input id="password" type="password" class="input_login shadow" required>
 
-            <button onclick="logar();" class="button">Login</button>
-            <button onclick="registrar();" class="button">Registrar</button>
-        </main>
+            <button onclick="logar();" class="button" >Login</button>
+            <br>
+            <input type="submit" class="button" value="Registrar"></input>
+        </form>
     <footer>
         <div class="linha"></div>
     </footer>
