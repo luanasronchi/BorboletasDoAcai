@@ -104,8 +104,9 @@ b{
     outline: none;
 }
 
-.input_login:required{
-    border: 1px solid red;
+.input_login::placeholder{
+    position: absolute;
+    padding: 2% 90%;
 }
 
 .texto_login{
