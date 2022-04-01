@@ -18,6 +18,12 @@ body{
     animation: fadein 1.8s;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @keyframes fadein{
     from { opacity: 0;}
     to   { opacity: 1;}
