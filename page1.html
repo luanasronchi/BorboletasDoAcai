@@ -30,7 +30,7 @@
     var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
 
     db.transaction(function(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(10) PRIMARY KEY,password VARCHAR(5))')
+            tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(40) PRIMARY KEY,password VARCHAR(40), imagem TEXT)')
         });
 
     function registrar(){
