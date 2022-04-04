@@ -10,9 +10,10 @@
     <header class="titulo">
         <button class="button_voltar"><img src="imgs/voltar.svg"></button>
         <h1 class="shadow">Perfil</h1>
+        <h2>Bem vindo(a) <h2 id="nome"></h2></h2>
     </header>
     <!-- <img class="img_perfil" src="imgs/perfil.png" height="175px"> -->
-
+    
     <input type="file" name="meu_upload" id="meu_upload">
     <div class="img_perfil">
         <img id="imagem" src="imgs/perfil.png" height="175px" width="175px">
@@ -52,24 +53,29 @@
         <button class="menu_button"><a href="page3.html"><img src="imgs/Search.svg" class="menu_img"></a></button>
         <button class="menu_button"><a href="page4.html"><img src="imgs/Cart.svg" class="menu_img"></a></button>
         <button class="menu_button"><a href="page5.html"><img src="imgs/Profile.svg" class="menu_img"></a></button>
+        
     </footer>
 </body>
 
 <script src="jquery-3.6.0.min.js"></script>
 <script>
+   
     /* --------------- DataBase --------------- */
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
+    
+    var db = openDatabase('APP2','v1.0','Minha base',2*1024*1024)
 
+    var variaveis = new URLSearchParams(location.search);
+    var usuario = variaveis.get('usuario');
+    nome.innerHTML=usuario;
 
-    $(document).on("change", "#meu_upload", function(e) {
-        showThumbnail(this.files);
-    });
 
     $('#imagemSelect').click(function(){
         $('#meu_upload').click();
     });
 
-    var caminho = ""
+    $(document).on("change", "#meu_upload", function(e) {
+        showThumbnail(this.files);
+    });
 
     function showThumbnail(files) {
         if (files && files[0]) {
@@ -77,16 +83,33 @@
 
             reader.onload = function (e) {
                imagem.src =  e.target.result;
-               caminho = e.target.result;
+
 
                db.transaction(function(tx)
-               {
-                   tx.executeSql('UPDATE usuarios SET imagem=? WHERE login=?',[caminho,login.value])
+                {
+                    tx.executeSql('UPDATE users SET imagem=? WHERE login=?',[imagem.src,usuario]);
                 })
             }
 
             reader.readAsDataURL(files[0]);
         }
     }
+
+    db.transaction(function(tx)
+        {
+            var consulta = 'SELECT * FROM users WHERE login=?';
+            tx.executeSql(consulta,[usuario], function(tx,resultados)
+            {   
+                // Pegando o número de linhas retornado:
+                var linhas = resultados.rows.length;
+                // Percorrendo cada linha:
+                for(i=0; i<linhas; i++)
+                {
+                    // Vamos pegar o peso:
+                    imagem.src = resultados.rows.item(i).imagem;
+                }
+            });
+        })
+
 </script>
 </html>

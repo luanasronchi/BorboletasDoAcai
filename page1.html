@@ -27,7 +27,7 @@
 
 <script>
     /* --------------- DataBase --------------- */
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
+    var db = openDatabase('APP2','v1.0','Minha base',2*1024*1024)
 
     db.transaction(function(tx){
             tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(40) PRIMARY KEY,password VARCHAR(40), imagem TEXT)')
@@ -58,7 +58,8 @@
                 if (nr_linhas>0){
                     for(i=0; i<nr_linhas; i++){
                         if (login.value == resultado.rows.item(i).login && password.value == resultado.rows.item(i).password){
-                            location.href = "page2.html"
+                            var usuario = login.value;
+                            window.open("page5.html?usuario="+usuario,"_self");
                         }else{
                             alert("Senha incorreta.")
                         }
