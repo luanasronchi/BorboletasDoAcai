@@ -260,6 +260,28 @@ b{
 
 /* PAGE 4 */
 
+#precoTotal{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.linha2{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .codigo{
+        padding: 10px;
+    }
+    .produto{
+        padding: 10px;
+    }
+    .preco{
+        padding: 10px;
+    }
+
 .icon_acai{
     width: 70px;
     height: 70px;
@@ -391,8 +413,6 @@ b{
     display: inline;
 }
 
-
-
 /* .fundo_perfil{
     width: 200px;
     height: 200px;
@@ -472,3 +492,4 @@ b{
     flex-direction: column;
     align-items: center;
 }
+

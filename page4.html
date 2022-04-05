@@ -7,56 +7,15 @@
     <title>Pedidos</title>
 </head>
 <body>
+    
     <header class="titulo">
         <button class="button_voltar"><img src="imgs/voltar.svg"></button>
         <h1 class="shadow">Pedidos</h1>
+        
     </header>
+    
     <main>
-        <section class="caixa_pedidos">
-            <div class="caixa_icon">
-                <img src="imgs/acai2.png" class="icon_acai">
-            </div>
-                
-            <div class="texto_pedidos">
-                <h2 class="texto_pedidos"><b>Açaí Médio</b></h2>
-                <h3 class="texto_pedidos">500ml</h3>
-                <h3 class="texto_pedidos">2 complementos</h3>
-            </div>
-            <div class="caixas_pedidos">
-                <div class="qtd">
-                    <button class="none" onclick="sub(1);">-</button>
-                    <input class="qtd_caixa none" type="number" id="qtd1" name="quantity" min="1" value="1" max="20" readonly >
-                    <button class="none" onclick="soma(1);">+</button>
-                </div> 
-                <input class="preco_pedidos none" id="preco1" type="number" value="9.00" readonly>
-            </div>    
-        </section>
-        <section class="caixa_pedidos">
-            <div class="caixa_icon">
-                <img src="imgs/acai3.png" class="icon_acai">
-            </div>
-                
-            <div class="texto_pedidos">
-                <h2 class="texto_pedidos"><b>Açaí Grande</b></h2>
-                <h3 class="texto_pedidos">800ml</h3>
-                <h3 class="texto_pedidos">3 complementos</h3>
-            </div>
-            <div class="caixas_pedidos">
-                <div class="qtd">
-                    <button class="none" onclick="sub(2);">-</button>
-                    <input class="qtd_caixa none" type="number" id="qtd2" name="quantity" min="1" value="1" max="20" readonly >
-                    <button class="none" onclick="soma(2);">+</button>
-                </div> 
-                <input class="preco_pedidos none" id="preco2" type="number" value="15.00" readonly>
-            </div>    
-        </section>
-        <button class="button_montar">Adicionar Pedido</button> 
-        <section class="pagamento_pedidos">
-            <h1>Valor total: R$ </h1>
-            <input type="number" id="precoTotal" value="24.00" readonly>
-            <button class="none" ><img src="imgs/seta.svg"></button>
-        </section>
-     
+        <div id="precoTotal"></div>
     </main>
     <footer class="menu_bar">
         <button class="menu_button"><a href="page2.html"><img src="imgs/Home.svg" class="menu_img"></a></button>
@@ -68,52 +27,42 @@
 
 <script>
     /* --------------- DataBase --------------- */
-    var db = openDatabase('APP2','v1.0','Minha base',2*1024*1024)
+    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
 
-    function sub(x){
-        if (x == 1) {
-                var valor = parseInt(qtd1.value)
-            if (valor > 1){
-                valor = valor - 1
-                qtd1.value = valor
-                preco = 9.00*valor
-                preco1.value = preco.toFixed(2);
-                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);               
-            }
-        }
-        if (x == 2) {
-                var valor = parseInt(qtd2.value)
-            if (valor > 1){
-                valor = valor - 1
-                qtd2.value = valor
-                preco = 15.00*valor
-                preco2.value = preco.toFixed(2);
-                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
-            }
-        }
-    }
+
+        db.transaction(function(tx)
+        {
+            var consulta = 'SELECT * FROM pedidos';
+            tx.executeSql(consulta,[], function(tx,resultados)
+            {   
+                // Pegando o número de linhas retornado:
+                var linhas = resultados.rows.length;
+                if (linhas==0)
+                {
+                    alert("NÃO ENCONTRADO");
+                }
+                // Percorrendo cada linha:
+                var t = ""
+                var c = ""
+                var pro = ""
+                var pre = ""
+                for(i=0; i<linhas; i++)
+                {
+                    // Vamos pegar o nome:
+                     c = resultados.rows.item(i).cod
+                     pro = resultados.rows.item(i).produto
+                     pre = resultados.rows.item(i).preco;
+                    t = t + "<div class='linha2'>"
+                    t = t + "<div class='produto'>" + pro + "</div>"
+                    t = t + "<div class='preco'>" + pre + "</div>"
+                    t = t + "</div>" 
+                }
+                precoTotal.innerHTML = t
+            });
+        })
+
     
-    function soma(x){
-        if (x == 1) {
-                var valor = parseInt(qtd1.value)
-            if (valor < 20){
-                valor = valor + 1
-                qtd1.value = valor
-                preco = 9.00*valor
-                preco1.value = preco.toFixed(2);
-                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
-            }
-        }
-        if (x == 2) {
-                var valor = parseInt(qtd2.value)
-            if (valor < 20){
-                valor = valor + 1
-                qtd2.value = valor
-                preco = 15.00*valor
-                preco2.value = preco.toFixed(2);
-                precoTotal.value = (parseInt(preco1.value) + parseInt(preco2.value)).toFixed(2);
-            }
-        }
-    }
+
+
 </script>
 </html>
