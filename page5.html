@@ -65,7 +65,7 @@
 
     var variaveis = new URLSearchParams(location.search);
     var usuario = variaveis.get('usuario');
-    nome.innerHTML=usuario;
+    
 
 
     $('#imagemSelect').click(function(){
@@ -87,6 +87,7 @@
                db.transaction(function(tx)
                 {
                     tx.executeSql('UPDATE users SET imagem=? WHERE login=?',[imagem.src,usuario]);
+                    location.reload();
                 })
             }
 
@@ -96,7 +97,7 @@
 
     db.transaction(function(tx)
         {
-            var consulta = 'SELECT * FROM users WHERE login=?';
+            var consulta = 'SELECT imagem FROM users WHERE login=?';
             tx.executeSql(consulta,[usuario], function(tx,resultados)
             {   
                 // Pegando o número de linhas retornado:

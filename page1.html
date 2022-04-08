@@ -11,14 +11,14 @@
         <h1 class="shadow">Login</h1>
         <img src="imgs/Logo.svg" width="150px">
     </header>
-    <form class="form_login" action="page1.html" onsubmit="registrar();">
+    <div class="div_login" action="page1.html" onsubmit="registrar();">
         <h3 class="texto_login">Usuário</h3>
         <input id="login" type="text" class="input_login shadow" required placeholder="*">
         <h3 class="texto_login">Senha</h3>
         <input id="password" type="password" class="input_login shadow" required placeholder="*">
 
         <button onclick="logar();" class="button" >Login</button>
-        <input type="submit" class="button" value="Registrar"></input>
+        <button onclick="registrar();" class="button" >Registrar</button>
     </form>
     <footer>
         <div class="linha"></div>
@@ -44,7 +44,8 @@
                     alert('Usuário já existe');                   
                 }
                 else{
-                    tx.executeSql('INSERT INTO users(login,password) VALUES(?,?)',[login.value,password.value]);
+                    tx.executeSql('INSERT INTO users(login,password,imagem) VALUES(?,?,?)',[login.value,password.value,'imgs/perfil.png']);
+                    location.reload();
                 }
             });            
         });

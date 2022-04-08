@@ -95,7 +95,7 @@ b{
 
 /* PAGE 1 */
 
-.form_login{
+.div_login{
     display: flex;
     flex-direction: column;
     align-items: center;
