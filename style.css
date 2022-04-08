@@ -260,43 +260,66 @@ b{
 
 /* PAGE 4 */
 
-#precoTotal{
+.div_listagem{
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
+    width: 75%;
+}
+
+#listagem{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .linha2{
-        display: flex;
-        flex-direction: row;
-        
-    }
-    .codigo{
-        padding: 10px;
-    }
-    .produto{
-        padding: 10px;
-    }
-    .preco{
-        padding: 10px;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    margin-top: 2%;
+    color: #01400B;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.16));
+}
+.codigo{ /* id do produto desativado */
+    padding: 0px;
+}
+.produto{ /* nome/numero do produto */
+    font-weight: bold;
+}
+.preco{ /* valor do produto */
+    text-align: center;
+    margin-top: 2%;
+    font-size: 24px;
+    width: 30%;
+    font-weight: bold;
+    color: #01400B;
+}
 
 .icon_acai{
     width: 70px;
     height: 70px;
+    background-color: #65308277;
+    border-radius: 10px;
 }
 
 .caixa_icon{
     display: flex;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: #65308277;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-    margin-left: 12px;
-    margin-right: 12px;
 }
 
 .caixa_pedidos{
@@ -356,31 +379,16 @@ b{
 }
 
 .pagamento_pedidos{
-    border-radius: 10px;
-    background-color: #F2F2F2;
-    color: #01400B;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 20%;
-    width: 100%;
-    filter: drop-shadow(0px 10px 100px rgba(0, 0, 0, 0.25));
-    margin-top: 25%;
-}
-.pagamento_pedidos input{
-    width: 20%;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #01400B;
+    background-color: #B5EA5C;
     font-size: 24px;
     font-weight: bold;
-}
-.pagamento_pedidos button{
-    background-color: #B5EA5C;
-    width: 20%;
-    height: 60%;
+    color: #01400B;
+    width: 90%;
+    height: 70px;
     border-radius: 10px;
+    margin-bottom: 2%;
+    margin-top: auto;
+    filter: drop-shadow(0px 10px 100px rgba(0, 0, 0, 0.25));
 }
 
 .img_perfil{

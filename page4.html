@@ -14,9 +14,11 @@
         
     </header>
     
-    <main>
-        <div id="precoTotal"></div>
+    <main class="div_listagem">
+        <div id="listagem"></div>
+        
     </main>
+    <button class="pagamento_pedidos none" onclick="finalizarCompra();">Finalizar compra</button>
     <footer class="menu_bar">
         <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.svg" class="menu_img"></button>
         <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.svg" class="menu_img"></button>
@@ -56,14 +58,22 @@
                      c = resultados.rows.item(i).cod
                      pro = resultados.rows.item(i).produto
                      pre = resultados.rows.item(i).preco;
-                    t = t + "<div class='linha2'>"
-                    t = t + "<div class='produto'>" + pro + "</div>"
-                    t = t + "<div class='preco'>" + pre + "</div>"
-                    t = t + "</div>" 
+                    t = t + "<div class='linha2'>" + "<img src='imgs/acai2.png' class='icon_acai'>"
+                    t = t + "<div class='produto'>Açaí médio <br> Complementos <br>" + pro + "</div>"
+                    t = t + "<div class='preco'>R$" + pre + "</div>"
+                    t = t + "</div>" + "</div>"
                 }
-                precoTotal.innerHTML = t
+                listagem.innerHTML = t
             });
         })
+
+        function finalizarCompra(){
+            db.transaction(function(tx)
+            {
+                tx.executeSql('DELETE FROM pedidos');
+                location.reload();
+            })
+        }
 
     
 
