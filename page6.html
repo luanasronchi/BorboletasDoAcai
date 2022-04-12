@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Complementos</title>
+</head>
+<body>
+    <header class="titulo">
+        <button class="button_voltar"><img src="imgs/voltar.svg"></button>
+        <h1 class="shadow">Complementos</h1>
+    </header>
+    <main>
+        <section>
+            <section class="complementos">
+                <button class="comp" onclick="complementoSelect(1);">
+                    <img class="img_comp" src="imgs/pacoca.png">
+                    <div class="comp_text">
+                        Paçoca
+                    </div>
+                </button>
+                <button class="comp" onclick="complementoSelect(2);" style="margin-left: 40px;">
+                    <img class="img_comp" src="imgs/ninho.png">
+                    <div class="comp_text">
+                        Ninho
+                    </div>
+                </button>
+            </section>
+            <section class="complementos">
+                <button class="comp" onclick="complementoSelect(3);">
+                    <img class="img_comp" src="imgs/morango.png">
+                    <div class="comp_text">
+                        Morango
+                    </div>
+                </button>
+                <button class="comp" onclick="complementoSelect(4);" style="margin-left: 40px;">
+                    <img class="img_comp" src="imgs/banana.png">
+                    <div class="comp_text">
+                        Banana
+                    </div>
+                </button>
+            </section>
+            <section class="complementos">
+                <button class="comp" onclick="complementoSelect(5);">
+                    <img class="img_comp" src="imgs/granola.png">
+                    <div class="comp_text">
+                        Granola
+                    </div>
+                </button>
+                <button class="comp" onclick="complementoSelect(6);" style="margin-left: 40px;">
+                    <img class="img_comp" src="imgs/nutella.png">
+                    <div class="comp_text">
+                        Nutella
+                    </div>
+                </button>
+            </section>
+        </section>
+        </main>
+        <div class="botao_six">
+            <img src="imgs/seta.svg" onclick="Inserir(1);" style="margin-top: 10px; margin-left: 20px; width: 35px; height:35px;">
+        </div>
+        <footer class="menu_bar">
+            <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.svg" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.svg" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(3)"><img src="imgs/Cart.svg" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(4)"><img src="imgs/Profile.svg" class="menu_img"></button>
+        </footer>
+    </body>
+    <script>
+    
+    /* --------------- DataBase --------------- */
+    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
+
+    var variaveis = new URLSearchParams(location.search);
+    var usuario = variaveis.get('usuario');
+    var complementos = ""
+    function complementoSelect(x){
+        if (x == 1){
+            complementos = (complementos + "1;");
+            console.log(complementos)
+        }
+        if (x == 2){
+            complementos = (complementos + "2;");
+            console.log(complementos)
+        }
+        if (x == 3){
+            complementos = (complementos + "3;");
+            console.log(complementos)
+        }
+        if (x == 4){
+            complementos = (complementos + "4;");
+            console.log(complementos)
+        }
+        if (x == 5){
+            complementos = (complementos + "5;");
+            console.log(complementos)
+        }
+        if (x == 6){
+            complementos = (complementos + "6;");
+            console.log(complementos)
+        }
+    }
+
+    function abrirPage(x){
+        if (x == 1){
+            window.open("page2.html?usuario="+usuario,"_self");
+        }
+        if (x == 2){
+            window.open("page3.html?usuario="+usuario,"_self");
+        }
+        if (x == 3){
+            window.open("page4.html?usuario="+usuario,"_self");
+        }
+        if (x == 4){
+            window.open("page5.html?usuario="+usuario,"_self");
+        }
+    }   
+    </script>
+</html>
