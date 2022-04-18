@@ -70,6 +70,10 @@ b{
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+.rolagem{
+    overflow-y: scroll;
+}
+
 .titulo{
     display: flex;
     flex-direction: row;
@@ -265,7 +269,8 @@ b{
     flex-direction: column;
     align-content: center;
     align-items: center;
-    width: 75%;
+    width: 80%;
+    height: 60%;
 }
 
 #listagem{
@@ -273,7 +278,7 @@ b{
     flex-direction: column;
     align-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
 }
 
 .linha2{
