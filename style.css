@@ -295,12 +295,16 @@ b{
     border-radius: 10px;
     filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.16));
 }
+
 .codigo{ /* id do produto desativado */
     padding: 0px;
 }
+
 .produto{ /* nome/numero do produto */
     font-weight: bold;
+    margin-left: 2%;
 }
+
 .preco{ /* valor do produto */
     text-align: center;
     margin-top: 2%;
@@ -308,6 +312,13 @@ b{
     width: 30%;
     font-weight: bold;
     color: #01400B;
+}
+
+.remove{
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-bottom: auto;
 }
 
 .icon_acai{

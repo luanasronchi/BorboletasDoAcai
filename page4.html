@@ -45,7 +45,7 @@
                 var linhas = resultados.rows.length;
                 if (linhas==0)
                 {
-                    alert("NÃO ENCONTRADO");
+                    alert("Nenhum pedido foi feito.");
                 }
                 // Percorrendo cada linha:
                 var t = ""
@@ -55,13 +55,13 @@
                 for(i=0; i<linhas; i++)
                 {
                     // Vamos pegar o nome:
-                     c = resultados.rows.item(i).cod
-                     pro = resultados.rows.item(i).produto
-                     pre = resultados.rows.item(i).preco;
+                    id = resultados.rows.item(i).id
+                    pro = resultados.rows.item(i).produto
+                    pre = resultados.rows.item(i).preco;
                     t = t + "<div class='linha2'>" + "<img src='imgs/acai2.png' class='icon_acai'>"
                     t = t + "<div class='produto'>Açaí médio <br> Complementos <br>" + pro + "</div>"
-                    t = t + "<div class='preco'>R$" + pre + "</div>"
-                    t = t + "</div>" + "</div>"
+                    t = t + "<div class='preco'>R$" + pre + "</div>" + "<img src='imgs/remove.png' class='remove' onclick='remove(" + id + ");'>"
+                    t = t + "</div>"  + "</div>"
                 }
                 listagem.innerHTML = t
             });
@@ -71,6 +71,14 @@
             db.transaction(function(tx)
             {
                 tx.executeSql('DELETE FROM pedidos');
+                location.reload();
+            })
+        }
+
+        function remove(id){
+            db.transaction(function(tx)
+            {
+                tx.executeSql('DELETE FROM pedidos WHERE id=' + id);
                 location.reload();
             })
         }
