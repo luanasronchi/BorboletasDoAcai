@@ -39,6 +39,9 @@
             <img src="imgs/seta.svg" onclick="Inserir(3);">
         </button>
     </main>
+    <div id="mensagens">
+
+    </div>
     <footer class="menu_bar">
         <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.svg" class="menu_img"></button>
         <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.svg" class="menu_img"></button>
@@ -68,21 +71,24 @@
             {
                 tx.executeSql('INSERT INTO pedidos(produto,preco) VALUES("1;3;6",15.90)')
             })
-            alert('Pedido adicionado ao carrinho!');
+            document.getElementById("mensagens").innerHTML='Pedido adicionado ao carrinho!'
+            window.setTimeout("document.getElementById('mensagens').innerHTML=''", 5000);
         }
         if (x == 2){
             db.transaction(function(tx)
             {
                 tx.executeSql('INSERT INTO pedidos(produto,preco) VALUES("1;2;3",13.20)')
             })
-            alert('Pedido adicionado ao carrinho!');
+            document.getElementById("mensagens").innerHTML='Pedido adicionado ao carrinho!'
+            window.setTimeout("document.getElementById('mensagens').innerHTML=''", 5000);
         }
         if (x == 3){
             db.transaction(function(tx)
             {
                 tx.executeSql('INSERT INTO pedidos(produto,preco) VALUES("4;5",9.90)')
             })
-            alert('Pedido adicionado ao carrinho!');
+            document.getElementById("mensagens").innerHTML='Pedido adicionado ao carrinho!'
+            window.setTimeout("document.getElementById('mensagens').innerHTML=''", 5000);
         }
     }
 
