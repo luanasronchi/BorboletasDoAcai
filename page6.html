@@ -75,28 +75,8 @@
     var usuario = variaveis.get('usuario');
     var complementos = ""
     function complementoSelect(x){
-        if (x == 1){
-            complementos = (complementos + "1;");
-            console.log(complementos)
-        }
-        if (x == 2){
-            complementos = (complementos + "2;");
-            console.log(complementos)
-        }
-        if (x == 3){
-            complementos = (complementos + "3;");
-            console.log(complementos)
-        }
-        if (x == 4){
-            complementos = (complementos + "4;");
-            console.log(complementos)
-        }
-        if (x == 5){
-            complementos = (complementos + "5;");
-            console.log(complementos)
-        }
-        if (x == 6){
-            complementos = (complementos + "6;");
+        if (x) {
+            complementos = (complementos + x + ";");
             console.log(complementos)
         }
     }
