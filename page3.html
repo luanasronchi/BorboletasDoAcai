@@ -56,13 +56,6 @@
 
     var variaveis = new URLSearchParams(location.search);
     var usuario = variaveis.get('usuario');
-    
-
-    db.transaction(function(tx)
-    {
-        // Vá em INSPECIONAR >> Application -> WEB SQL
-        tx.executeSql('CREATE TABLE IF NOT EXISTS pedidos(id INTEGER PRIMARY KEY AUTOINCREMENT,produto VARCHAR(20), preco DECIMAL)')
-    })
 
     function Inserir(x)
     {

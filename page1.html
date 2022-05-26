@@ -30,8 +30,12 @@
     var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
 
     db.transaction(function(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(40) PRIMARY KEY,password VARCHAR(40), imagem TEXT)')
-        });
+        tx.executeSql('CREATE TABLE IF NOT EXISTS users(login VARCHAR(40) PRIMARY KEY,password VARCHAR(40), imagem TEXT)')
+    });
+    db.transaction(function(tx)
+    {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS pedidos(id INTEGER PRIMARY KEY AUTOINCREMENT, tamanho CHAR(1), produto VARCHAR(20), preco DECIMAL)')
+    })
 
     function registrar(){
         db.transaction(function(tx){    
