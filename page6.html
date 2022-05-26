@@ -8,12 +8,12 @@
 </head>
 <body>
     <header class="titulo">
-        <button class="button_voltar"><img src="imgs/voltar.png"></button>
+        <button class="button_voltar" onclick="history.back()"><img src="voltar.png"></button>
         <h1 class="shadow">Tamanho</h1>
     </header>
     <main>
         <div class="retangulo">
-            <img class="img_ret" src="imgs/copos.png">
+            <img class="img_ret" src="copos.png">
         </div>
 
      
@@ -48,35 +48,15 @@
     </main>
 
     <footer class="menu_bar">
-        <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(3)"><img src="imgs/Cart.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(4)"><img src="imgs/Profile.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(1)"><img src="Home.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(2)"><img src="Search.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(3)"><img src="Cart.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(4)"><img src="Profile.png" class="menu_img"></button>
     </footer>
 </body>
 
+<script src="scripts.js"></script>
 <script>
-    /* --------------- DataBase --------------- */
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
-
-    var variaveis = new URLSearchParams(location.search);
-    var usuario = variaveis.get('usuario');
-    
-    
-    function abrirPage(x){
-        if (x == 1){
-            window.open("page2.html?usuario="+usuario,"_self");
-        }
-        if (x == 2){
-            window.open("page3.html?usuario="+usuario,"_self");
-        }
-        if (x == 3){
-            window.open("page4.html?usuario="+usuario,"_self");
-        }
-        if (x == 4){
-            window.open("page5.html?usuario="+usuario,"_self");
-        }
-    }
     var arr = [];
     function Inserir(x){
         if (x){

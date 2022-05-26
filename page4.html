@@ -9,7 +9,7 @@
 <body>
     
     <header class="titulo">
-        <button class="button_voltar"><img src="imgs/voltar.png"></button>
+        <button class="button_voltar" onclick="history.back()"><img src="voltar.png"></button>
         <h1 class="shadow">Pedidos</h1>
         
     </header>
@@ -18,26 +18,19 @@
         <div id="listagem"></div>
         
     </main>
-    <a href="page8.html">
-    <button class="pagamento_pedidos none shadow" onclick="finalizarCompra();">Finalizar compra</button>
-</a>
+
+    <button class="pagamento_pedidos none shadow" onclick="finalizarCompra()">Finalizar compra</button>
+
     <footer class="menu_bar">
-        <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(3)"><img src="imgs/Cart.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(4)"><img src="imgs/Profile.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(1)"><img src="Home.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(2)"><img src="Search.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(3)"><img src="Cart.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(4)"><img src="Profile.png" class="menu_img"></button>
     </footer>
 </body>
 
+<script src="scripts.js"></script>
 <script>
-    /* --------------- DataBase --------------- */
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
-
-    var variaveis = new URLSearchParams(location.search);
-    var usuario = variaveis.get('usuario');
-    
-
-
         db.transaction(function(tx)
         {
             var consulta = 'SELECT * FROM pedidos';
@@ -70,9 +63,9 @@
                         tam = "Açaí Grande"
                     }
                     pre = resultados.rows.item(i).preco
-                    t = t + "<div class='linha2'>" + "<img src='imgs/acai2.png' class='icon_acai'>"
+                    t = t + "<div class='linha2'>" + "<img src='acai2.png' class='icon_acai'>"
                     t = t + "<div class='produto'>" + tam + "<br> Complementos <br>" + pro + "</div>"
-                    t = t + "<div class='preco'>R$" + pre + "</div>" + "<img src='imgs/remove.png' class='remove' onclick='remove(" + id + ");'>"
+                    t = t + "<div class='preco'>R$" + pre + "</div>" + "<img src='remove.png' class='remove' onclick='remove(" + id + ");'>"
                     t = t + "</div>"  + "</div>"
                 }
                 listagem.innerHTML = t
@@ -83,7 +76,7 @@
             db.transaction(function(tx)
             {
                 tx.executeSql('DELETE FROM pedidos');
-                location.reload();
+                abrirPage(7);
             })
         }
 
@@ -94,22 +87,5 @@
                 location.reload();
             })
         }
-
-    
-
-        function abrirPage(x){
-        if (x == 1){
-            window.open("page2.html?usuario="+usuario,"_self");
-        }
-        if (x == 2){
-            window.open("page3.html?usuario="+usuario,"_self");
-        }
-        if (x == 3){
-            window.open("page4.html?usuario="+usuario,"_self");
-        }
-        if (x == 4){
-            window.open("page5.html?usuario="+usuario,"_self");
-        }
-    }
 </script>
 </html>

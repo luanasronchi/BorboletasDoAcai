@@ -8,20 +8,20 @@
 </head>
 <body>
     <header class="titulo">
-        <button class="button_voltar"><img src="imgs/voltar.png"></button>
+        <button class="button_voltar" onclick="history.back()"><img src="voltar.png"></button>
         <h1 class="shadow">Complementos</h1>
     </header>
     <main>
         <section>
             <section class="complementos">
                 <button class="comp none" onclick="complementoSelect(1);">
-                    <img class="img_comp" src="imgs/pacoca.png">
+                    <img class="img_comp" src="pacoca.png">
                     <div class="comp_text">
                         Paçoca
                     </div>
                 </button>
                 <button class="comp none" onclick="complementoSelect(2);">
-                    <img class="img_comp" src="imgs/ninho.png">
+                    <img class="img_comp" src="ninho.png">
                     <div class="comp_text">
                         Ninho
                     </div>
@@ -29,13 +29,13 @@
             </section>
             <section class="complementos">
                 <button class="comp none" onclick="complementoSelect(3);">
-                    <img class="img_comp" src="imgs/morango.png">
+                    <img class="img_comp" src="morango.png">
                     <div class="comp_text">
                         Morango
                     </div>
                 </button>
                 <button class="comp none" onclick="complementoSelect(4);">
-                    <img class="img_comp" src="imgs/banana.png">
+                    <img class="img_comp" src="banana.png">
                     <div class="comp_text">
                         Banana
                     </div>
@@ -43,13 +43,13 @@
             </section>
             <section class="complementos">
                 <button class="comp none" onclick="complementoSelect(5);">
-                    <img class="img_comp" src="imgs/granola.png">
+                    <img class="img_comp" src="granola.png">
                     <div class="comp_text">
                         Granola
                     </div>
                 </button>
                 <button class="comp none" onclick="complementoSelect(6);">
-                    <img class="img_comp" src="imgs/nutella.png">
+                    <img class="img_comp" src="nutella.png">
                     <div class="comp_text">
                         Nutella
                     </div>
@@ -57,28 +57,20 @@
             </section>
         </main>
         <div class="botao_six">
-            <img src="imgs/seta.png" onclick="Inserir();">
+            <img src="seta.png" onclick="Inserir();">
         </div>
         <footer class="menu_bar">
-            <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.png" class="menu_img"></button>
-            <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.png" class="menu_img"></button>
-            <button class="menu_button" onclick="abrirPage(3)"><img src="imgs/Cart.png" class="menu_img"></button>
-            <button class="menu_button" onclick="abrirPage(4)"><img src="imgs/Profile.png" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(1)"><img src="Home.png" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(2)"><img src="Search.png" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(3)"><img src="Cart.png" class="menu_img"></button>
+            <button class="menu_button" onclick="abrirPage(4)"><img src="Profile.png" class="menu_img"></button>
         </footer>
     </body>
-    <script>
-    
-    /* --------------- DataBase --------------- */
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
-
-    var variaveis = new URLSearchParams(location.search);
-    var usuario = variaveis.get('usuario');
-    var complementos = ""
-
-
-        var sessionString = sessionStorage.getItem('arr');
-        var pedidoArray = JSON.parse(sessionString);
-        console.log(pedidoArray);
+    <script src="scripts.js"></script>
+<script>
+    var sessionString = sessionStorage.getItem('arr');
+    var pedidoArray = JSON.parse(sessionString);
+    console.log(pedidoArray);
     
     function complementoSelect(x){
         var achou = 0
@@ -120,20 +112,5 @@
             }
         });
     }
-
-    function abrirPage(x){
-        if (x == 1){
-            window.open("page2.html?usuario="+usuario,"_self");
-        }
-        if (x == 2){
-            window.open("page3.html?usuario="+usuario,"_self");
-        }
-        if (x == 3){
-            window.open("page4.html?usuario="+usuario,"_self");
-        }
-        if (x == 4){
-            window.open("page5.html?usuario="+usuario,"_self");
-        }
-    }   
     </script>
 </html>

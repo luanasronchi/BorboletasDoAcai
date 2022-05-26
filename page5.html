@@ -8,14 +8,14 @@
 </head>
 <body>
     <header class="titulo">
-        <button class="button_voltar"><img src="imgs/voltar.png"></button>
+        <button class="button_voltar" onclick="history.back()"><img src="voltar.png"></button>
         <h1 class="shadow">Perfil</h1>
     </header>
-    <!-- <img class="img_perfil" src="imgs/perfil.png" height="175px"> -->
+    <!-- <img class="img_perfil" src="perfil.png" height="175px"> -->
     
     <input type="file" name="meu_upload" id="meu_upload">
     <div class="img_perfil">
-        <img id="imagem" src="imgs/perfil.png" height="175px" width="175px">
+        <img id="imagem" src="perfil.png" height="175px" width="175px">
         <img id="imagemSelect" src="frame2.png" class="img_perfil_edit" height="175px" width="175px">
     </div>
     </input>
@@ -23,50 +23,41 @@
 
     <main class="caixa_perfil">
         <a class="caixas_perfil">
-            <img src="imgs/settings.png" class="img_button_perfil">
+            <img src="settings.png" class="img_button_perfil">
             <h1>Informações</h1>
-            <img src="imgs/setinha3.png" class="setinha_perfil">
+            <img src="setinha3.png" class="setinha_perfil">
         </a>
         <a class="caixas_perfil">
-            <img src="imgs/notify.png" class="img_button_perfil">
+            <img src="notify.png" class="img_button_perfil">
             <h1>Notificações</h1>
-            <img src="imgs/setinha3.png" class="setinha_perfil">
+            <img src="setinha3.png" class="setinha_perfil">
         </a>
         <a class="caixas_perfil">
-            <img src="imgs/cupons.png" class="img_button_perfil">
+            <img src="cupons.png" class="img_button_perfil">
             <h1>Cupons</h1>
-            <img src="imgs/setinha3.png" class="setinha_perfil">
+            <img src="setinha3.png" class="setinha_perfil">
         </a>
         <a class="caixas_perfil">
-            <img src="imgs/wallet.png" class="img_button_perfil">
+            <img src="wallet.png" class="img_button_perfil">
             <h1>Carteira</h1>
-            <img src="imgs/setinha3.png" class="setinha_perfil">
+            <img src="setinha3.png" class="setinha_perfil">
         </a>
         <a href="page1.html" class="logout_perfil" >
-            <img src="imgs/logout.png" class="img_button_perfil">
+            <img src="logout.png" class="img_button_perfil">
             <h1>Logout</h1>
         </a>
     </main>
     <footer class="menu_bar">
-        <button class="menu_button" onclick="abrirPage(1)"><img src="imgs/Home.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(2)"><img src="imgs/Search.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(3)"><img src="imgs/Cart.png" class="menu_img"></button>
-        <button class="menu_button" onclick="abrirPage(4)"><img src="imgs/Profile.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(1)"><img src="Home.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(2)"><img src="Search.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(3)"><img src="Cart.png" class="menu_img"></button>
+        <button class="menu_button" onclick="abrirPage(4)"><img src="Profile.png" class="menu_img"></button>
     </footer>
 </body>
 
 <script src="jquery-3.6.0.min.js"></script>
+<script src="scripts.js"></script>
 <script>
-   
-    /* --------------- DataBase --------------- */
-    
-    var db = openDatabase('APP','v1.0','Minha base',2*1024*1024)
-
-    var variaveis = new URLSearchParams(location.search);
-    var usuario = variaveis.get('usuario');
-    
-
-
     $('#imagemSelect').click(function(){
         $('#meu_upload').click();
     });
@@ -109,20 +100,5 @@
                 }
             });
         })
-
-    function abrirPage(x){
-        if (x == 1){
-            window.open("page2.html?usuario="+usuario,"_self");
-        }
-        if (x == 2){
-            window.open("page3.html?usuario="+usuario,"_self");
-        }
-        if (x == 3){
-            window.open("page4.html?usuario="+usuario,"_self");
-        }
-        if (x == 4){
-            window.open("page5.html?usuario="+usuario,"_self");
-        }
-    }
 </script>
 </html>
