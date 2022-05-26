@@ -597,6 +597,15 @@ b{
     color: #01400B;
     font-size:20px;
 }  
+/*Page 8*/
+.input_endereco{
+    border-radius: 8px;
+    border: none;
+    width: 270px;
+    height: 35px;
+    padding-left: 10px;
+    outline: none;
+}
 
 /* MENU BAR */
 
