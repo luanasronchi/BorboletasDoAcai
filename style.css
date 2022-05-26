@@ -184,8 +184,8 @@ b{
     flex-direction: column;
     align-items: center;
 
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     background-color: #F2F2F2;
     margin: 10px;
     border-radius: 10px;
@@ -208,8 +208,8 @@ b{
 
 .img_combo{
     margin-top: -20%;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
 }
 
 .center{
@@ -279,7 +279,7 @@ b{
     flex-direction: column;
     align-content: center;
     align-items: center;
-    width: 80%;
+    width: 90%;
     height: 60%;
 }
 
@@ -336,16 +336,6 @@ b{
     height: 70px;
     background-color: #65308277;
     border-radius: 10px;
-}
-
-.caixa_icon{
-    display: flex;
-    width: 60px;
-    height: 60px;
-    background-color: #65308277;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
 }
 
 .caixa_pedidos{
@@ -502,7 +492,7 @@ b{
 }
 
 .img_button_perfil{
-    height: 40px;
+    height: 35px;
     width: 40px;
     margin-top: auto;
     margin-bottom: auto;
@@ -554,7 +544,7 @@ b{
 
 .retangulo{
     width: 300px;
-    height: 450px;
+    height: 90%;
     background-color: white;
     border-radius: 10px;
     display: flex;
