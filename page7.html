@@ -100,15 +100,25 @@
 
     var tamanho = pedidoArray[0];
     pedidoArray.shift();
-
     function Inserir(){
+        
         db.transaction(function (tx){
             for (var i = 0; i < pedidoArray.length; i++)
-            if (i < 1){
-                tx.executeSql("insert into pedidos(tamanho,produto) values(?,?)", [tamanho, pedidoArray]);
-                window.open("page7.html?usuario="+usuario,"_self");
+            var precoFinal = 0
+            if (tamanho == "P"){
+                precoFinal = 9.20
             }
-        });     
+            if (tamanho == "M"){
+                precoFinal = 12.50
+            }
+            if (tamanho == "G"){
+                precoFinal = 19.80
+            }
+            if (i > 1){
+                tx.executeSql("insert into pedidos(tamanho,produto,preco) values(?,?,?)", [tamanho, pedidoArray, precoFinal]);
+                window.open("page4.html?usuario="+usuario,"_self");
+            }
+        });
     }
 
     function abrirPage(x){

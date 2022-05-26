@@ -59,9 +59,19 @@
                     // Vamos pegar o nome:
                     id = resultados.rows.item(i).id
                     pro = resultados.rows.item(i).produto
-                    pre = resultados.rows.item(i).preco;
+                    tamanho = resultados.rows.item(i).tamanho
+                    if (tamanho == "P") {
+                        tam = "Açaí Pequeno"
+                    }
+                    if (tamanho == "M") {
+                        tam = "Açaí Médio"
+                    }
+                    if (tamanho == "G") {
+                        tam = "Açaí Grande"
+                    }
+                    pre = resultados.rows.item(i).preco
                     t = t + "<div class='linha2'>" + "<img src='imgs/acai2.png' class='icon_acai'>"
-                    t = t + "<div class='produto'>Açaí médio <br> Complementos <br>" + pro + "</div>"
+                    t = t + "<div class='produto'>" + tam + "<br> Complementos <br>" + pro + "</div>"
                     t = t + "<div class='preco'>R$" + pre + "</div>" + "<img src='imgs/remove.png' class='remove' onclick='remove(" + id + ");'>"
                     t = t + "</div>"  + "</div>"
                 }
