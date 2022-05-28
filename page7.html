@@ -14,50 +14,50 @@
     <main>
         <section>
             <section class="complementos">
-                <button class="comp none" onclick="complementoSelect(1);">
-                    <img class="img_comp" src="pacoca.png">
+                <button class="comp none" onclick="complementoSelect(1);"id="1">
+                    <img class="img_comp" src="pacoca.png" >
                     <div class="comp_text">
                         Paçoca
                     </div>
                 </button>
-                <button class="comp none" onclick="complementoSelect(2);">
-                    <img class="img_comp" src="ninho.png">
+                <button class="comp none" onclick="complementoSelect(2);"id="2">
+                    <img class="img_comp" src="ninho.png" >
                     <div class="comp_text">
                         Ninho
                     </div>
                 </button>
             </section>
             <section class="complementos">
-                <button class="comp none" onclick="complementoSelect(3);">
-                    <img class="img_comp" src="morango.png">
+                <button class="comp none" onclick="complementoSelect(3);"id="3">
+                    <img class="img_comp" src="morango.png" >
                     <div class="comp_text">
                         Morango
                     </div>
                 </button>
-                <button class="comp none" onclick="complementoSelect(4);">
-                    <img class="img_comp" src="banana.png">
+                <button class="comp none" onclick="complementoSelect(4);"id="4">
+                    <img class="img_comp" src="banana.png" >
                     <div class="comp_text">
                         Banana
                     </div>
                 </button>
             </section>
             <section class="complementos">
-                <button class="comp none" onclick="complementoSelect(5);">
-                    <img class="img_comp" src="granola.png">
+                <button class="comp none" onclick="complementoSelect(5);"id="5">
+                    <img class="img_comp" src="granola.png" >
                     <div class="comp_text">
                         Granola
                     </div>
                 </button>
-                <button class="comp none" onclick="complementoSelect(6);">
-                    <img class="img_comp" src="nutella.png">
+                <button class="comp none" onclick="complementoSelect(6);"id="6">
+                    <img class="img_comp" src="nutella.png" >
                     <div class="comp_text">
                         Nutella
                     </div>
                 </button>
             </section>
         </main>
-        <div class="botao_six">
-            <img src="seta.png" onclick="Inserir();">
+        <div class="botao_six" onclick="Inserir();">
+            Concluir
         </div>
         <footer class="menu_bar">
             <button class="menu_button" onclick="abrirPage(1)"><img src="Home.png" class="menu_img"></button>
@@ -79,11 +79,13 @@
                 if (pedidoArray[i]==x){
                     pedidoArray.splice(i, 1);
                     achou = 1
+                    document.getElementById(x).style.backgroundColor = "#f2f2f2";
                 }
             }
         }
         if (achou == 0){
             pedidoArray.push(x)
+            document.getElementById(x).style.backgroundColor = "#b2b2b2";
         }
         pedidoArray.sort();
         pedidoArray.reverse();
@@ -110,6 +112,11 @@
                 tx.executeSql("insert into pedidos(tamanho,produto,preco) values(?,?,?)", [tamanho, pedidoArray, precoFinal]);
                 window.open("page4.html?usuario="+usuario,"_self");
             }
+            if (i == 0){
+                tx.executeSql("insert into pedidos(tamanho,produto,preco) values(?,?,?)", [tamanho, "0", precoFinal]);
+                window.open("page4.html?usuario="+usuario,"_self");
+            }
+
         });
     }
     </script>
