@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1 class="shadow">Login</h1>
-        <img src="Logo.png" width="150px">
+        <img src="imgs/Logo.png" width="150px">
     </header>
     <div class="div_login" action="page1.html" onsubmit="registrar();">
         <h3 class="texto_login">Usuário</h3>
@@ -38,7 +38,7 @@
                     alert('Usuário já existe');                   
                 }
                 else{
-                    tx.executeSql('INSERT INTO users(login,password,imagem) VALUES(?,?,?)',[login.value,password.value,'perfil.png']);
+                    tx.executeSql('INSERT INTO users(login,password,imagem) VALUES(?,?,?)',[login.value,password.value,'imgs/perfil.png']);
                     location.reload();
                 }
             });            
